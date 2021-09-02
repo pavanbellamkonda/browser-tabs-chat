@@ -1,1 +1,21 @@
-<p>chat-messages works!</p>
+<div *ngIf="chatter">
+  <h2 class="chat-header">Chat with: {{ chatter.username }}</h2>
+  <div class="messages">
+    <mat-list>
+      <mat-list-item *ngFor="let message of messages">
+        <p class="message" [ngStyle]="{'text-align': message.fromSelf ? 'right' : 'left'}">
+          <strong *ngIf="!message.fromSelf">{{ message.sender }}:</strong>
+          {{ message.text }}
+          <strong *ngIf="message.fromSelf">:You</strong>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <!-- <mat-label>Message</mat-label> -->
+      <input matInput id="chat--message" type="text" placeholder="Send Message" [(ngModel)]="newMessage">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="send()">Send</button>
+  </div>
+</div>

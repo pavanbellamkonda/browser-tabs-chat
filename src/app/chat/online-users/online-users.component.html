@@ -1,1 +1,12 @@
-<p>online-users works!</p>
+<h2>Online users</h2>
+<mat-list>
+  <mat-list-item
+    *ngFor="let user of users"
+    class="list-item"
+    [ngStyle]="{cursor: user.online ? 'pointer': 'default'}"
+    (click)="userClicked(user)"
+  >
+    <mat-icon matListIcon [ngStyle]="{color: user.online ? 'green': 'gray'}">online_prediction</mat-icon>
+    <h3> {{user.username}} </h3>
+  </mat-list-item>
+</mat-list>

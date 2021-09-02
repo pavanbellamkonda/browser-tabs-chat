@@ -1,1 +1,12 @@
-<p>chat-list works!</p>
+<h2>Your chats</h2>
+<mat-list>
+  <mat-list-item
+    *ngFor="let chat of chats"
+    class="list-item"
+    (click)="chatClicked(chat)"
+    [ngStyle]="{background: chat.chatter === activeChatter ? 'cyan' : 'white'}"
+  >
+    <mat-icon matListIcon >account_circle</mat-icon>
+    <h3> {{chat.chatter}} </h3>
+  </mat-list-item>
+</mat-list>

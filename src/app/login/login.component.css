@@ -1,0 +1,10 @@
+.login-form {
+  /* text-align: center; */
+  position: fixed;
+  top: 10%;
+  left: 10%;
+}
+
+.form-field{
+  display: block
+}
